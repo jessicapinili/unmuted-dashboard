@@ -1,0 +1,1004 @@
+<!-- ============================================================
+     UNMUTED DASHBOARD
+     Video, DM, join, and workshop links are all wired in.
+============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --oxblood:#3d0c0c;
+    --wine:#5e1717;
+    --bg:#f2f2f2;
+    --warm:#efe9de;
+    --soft:#ece5d7;
+    --ink:#2c1515;
+    --ink-soft:#6b5050;
+    --cream:#faf6ee;
+    --sage:#dde6d4;
+    --blush:#f4ddd9;
+    --sky:#d8e2ee;
+    --butter:#f6ecc6;
+    --pink:#F2C6D0;
+    --maroon:#3D0A10;
+    --clay:#cf9d86;
+    --dot-sage:#87a36c;
+    --dot-blush:#d4948a;
+    --dot-sky:#7e9ec7;
+    --gold:#9a7b3e;
+    --gold-soft:#b1965c;
+    --line:rgba(61,12,12,.14);
+    --line-soft:rgba(61,12,12,.08);
+    --shadow:0 18px 40px -22px rgba(40,21,21,.40);
+    --shadow-sm:0 10px 24px -14px rgba(40,21,21,.32);
+    --radius:18px;
+    --radius-sm:12px;
+    --font:"DM Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  #unmuted{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  #unmuted [id]{scroll-margin-top:64px;}
+  #unmuted p{margin:0 0 15px;}
+  #unmuted strong{font-weight:700;color:var(--oxblood);}
+  #unmuted a.link{color:var(--oxblood);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold-soft);padding-bottom:1px;transition:.2s;}
+  #unmuted a.link:hover{color:var(--gold);border-color:var(--gold);}
+
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;}
+  .section{padding:76px 0;}
+  .section.warm{background:var(--warm);}
+
+  .eyebrow{display:inline-block;background:var(--oxblood);color:var(--cream);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;border-radius:999px;margin-bottom:20px;}
+  .about .eyebrow{background:var(--cream);color:var(--oxblood);}
+
+  h2.title{font-size:clamp(28px,5.4vw,42px);font-weight:800;line-height:1.1;margin:0 0 14px;color:var(--oxblood);letter-spacing:-.015em;min-height:1.1em;}
+  .lead{font-size:clamp(16px,2.4vw,19px);color:var(--ink-soft);font-weight:500;max-width:660px;}
+
+  /* typing cursor */
+  .tcursor{display:inline-block;width:2px;height:.95em;background:currentColor;margin-left:3px;vertical-align:-1px;animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:100;background:var(--oxblood);border-bottom:1px solid rgba(177,150,92,.22);}
+  .nav-inner{display:flex;align-items:center;gap:18px;padding:13px 24px;max-width:1040px;margin:0 auto;}
+  .nav-logo{font-weight:700;color:var(--cream);font-size:18px;flex-shrink:0;}
+  .nav-logo span{color:var(--gold-soft);}
+  .nav-links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto;}
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{color:#e4cfcb;text-decoration:none;font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;padding:7px 13px;border-radius:999px;white-space:nowrap;transition:.2s;}
+  .nav-links a:hover{color:var(--cream);}
+  .nav-links a.active{color:#fff;background:rgba(177,150,92,.28);}
+  .nav-logout{flex-shrink:0;background:transparent;border:1px solid rgba(177,150,92,.45);color:#e4cfcb;font-family:var(--font);font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;border-radius:999px;cursor:pointer;transition:.2s;white-space:nowrap;}
+  .nav-logout:hover{background:rgba(177,150,92,.2);color:var(--cream);}
+
+  .banner{line-height:0;background:var(--oxblood);}
+  .banner-img{display:block;width:100%;height:auto;}
+
+  /* video */
+  .video-block{padding:56px 0 8px;}
+  .video-wrap{position:relative;width:100%;padding-bottom:56.25%;border-radius:var(--radius);overflow:hidden;background:var(--oxblood);box-shadow:var(--shadow);}
+  .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+  /* cards */
+  .card{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);}
+  .card.c-sage{background:var(--sage);}
+  .card.c-blush{background:var(--blush);}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .card h3{margin:0 0 18px;font-size:20px;font-weight:700;color:var(--oxblood);display:flex;align-items:center;gap:10px;}
+  .feature h3{font-size:23px;font-weight:800;letter-spacing:-.01em;}
+  ul.clean{list-style:none;margin:0;padding:0;}
+  ul.clean li{position:relative;padding:9px 0 9px 24px;font-weight:500;}
+  ul.clean li::before{content:"";position:absolute;left:5px;top:18px;width:7px;height:7px;border-radius:50%;background:var(--clay);}
+  ul.check li::before{content:"";left:2px;top:14px;width:7px;height:11px;border:solid var(--oxblood);border-width:0 2px 2px 0;border-radius:0;background:none;transform:rotate(40deg);}
+  .c-sage ul.clean li::before{background:var(--dot-sage);}
+  .c-blush ul.clean li::before{background:var(--dot-blush);}
+  .p-sage ul.clean li::before{background:var(--dot-sage);}
+  .p-blush ul.clean li::before{background:var(--dot-blush);}
+  .p-sky ul.clean li::before{background:var(--dot-sky);}
+
+  /* announcement */
+  .announce{background:var(--butter);border:1px solid rgba(154,123,62,.22);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);}
+  .announce h3{font-size:20px;font-weight:700;color:var(--oxblood);margin:0 0 14px;}
+  .day{font-weight:700;color:var(--oxblood);}
+
+  /* about */
+  .about{background:var(--oxblood);color:var(--cream);border-radius:var(--radius);padding:44px;box-shadow:var(--shadow);}
+  .about-grid{display:grid;grid-template-columns:300px 1fr;gap:38px;align-items:start;}
+  .about-img img{width:100%;height:auto;display:block;border-radius:var(--radius-sm);box-shadow:0 16px 36px -20px rgba(0,0,0,.55);}
+  .about h2{color:var(--cream);}
+  .about p{color:rgba(250,246,238,.88);font-size:15.5px;}
+  .about strong{color:var(--gold-soft);}
+
+  /* accordions */
+  .acc-list,.pillar-grid{display:flex;flex-direction:column;gap:14px;margin-top:26px;}
+  .acc{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+  .acc.p-sage{background:var(--sage);}
+  .acc.p-blush{background:var(--blush);}
+  .acc.p-sky{background:var(--sky);}
+  .acc-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:22px 28px;cursor:pointer;user-select:none;}
+  .acc-titlewrap{display:flex;flex-direction:column;}
+  .acc-title{font-weight:700;color:var(--oxblood);font-size:19px;}
+  .acc.pillar .acc-title{font-size:21px;font-weight:800;}
+  .acc-sub{font-weight:500;color:var(--ink-soft);font-size:14px;margin-top:3px;}
+  .acc .chev{flex-shrink:0;color:var(--gold);font-size:22px;transition:.25s;font-weight:400;}
+  .acc.open .chev{transform:rotate(45deg);}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .acc-inner{padding:0 28px 28px;}
+  .ex-list{margin:0;padding-left:18px;}
+  .ex-list li{padding:5px 0;font-weight:500;}
+  .wmhq-box{margin-top:22px;background:#f8e4e9;border-radius:var(--radius-sm);padding:18px 20px;font-size:14.5px;font-weight:500;}
+  .wmhq-box .wlabel{font-weight:700;color:var(--oxblood);display:block;margin-bottom:5px;}
+  .pillar .wmhq-box{background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.7);}
+
+  /* tabs */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 24px;}
+  .tab{border:1px solid var(--oxblood);background:transparent;color:var(--oxblood);font-family:var(--font);font-weight:600;font-size:14.5px;padding:10px 22px;border-radius:999px;cursor:pointer;transition:.2s;}
+  .tab:hover{background:#fff;}
+  .tab.active{background:var(--oxblood);color:var(--cream);}
+  .panel{display:none;}
+  .panel.active{display:block;animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+
+  /* hooks */
+  .hook{background:#fff;border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow-sm);}
+  .hook-head{display:flex;align-items:center;gap:16px;padding:18px 20px;cursor:pointer;user-select:none;}
+  .hook-num{flex-shrink:0;width:32px;height:32px;border-radius:8px;background:var(--oxblood);color:var(--cream);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;}
+  .hook-line{font-weight:600;color:var(--ink);flex:1;font-size:15.5px;}
+  .chev{flex-shrink:0;color:var(--gold);font-size:20px;transition:.25s;font-weight:400;}
+  .hook.open .chev{transform:rotate(45deg);}
+  .hook-body{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .hook.open .hook-body{max-height:620px;}
+  .hook-inner{padding:2px 20px 22px 68px;}
+  .formula{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--soft);border-radius:10px;padding:11px 14px;margin-bottom:16px;font-size:14.5px;font-weight:500;}
+  .formula-txt{flex:1;min-width:200px;}
+  .formula-txt b{color:var(--oxblood);font-weight:700;}
+  .copy-btn{flex-shrink:0;border:1px solid var(--line);background:#fff;color:var(--oxblood);font-family:var(--font);font-weight:600;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;border-radius:999px;cursor:pointer;transition:.2s;}
+  .copy-btn:hover{background:var(--oxblood);color:var(--cream);}
+  .copy-btn.done{background:var(--sage);color:var(--oxblood);border-color:transparent;}
+  .copyall{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;background:var(--oxblood);color:var(--cream);border-radius:var(--radius);padding:22px 26px;margin-top:28px;box-shadow:var(--shadow);}
+  .copyall-txt{display:flex;align-items:center;gap:14px;}
+  .copyall-ico{font-size:24px;line-height:1;}
+  .copyall-title{font-weight:700;font-size:16px;color:var(--cream);}
+  .copyall-sub{font-size:13px;color:rgba(250,246,238,.7);margin-top:3px;}
+  .copyall-btn{flex-shrink:0;background:var(--cream);color:var(--oxblood);border:none;font-family:var(--font);font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;padding:12px 26px;border-radius:999px;cursor:pointer;transition:.2s;}
+  .copyall-btn:hover{background:#fff;}
+  .copyall-btn.done{background:var(--sage);}
+  .extag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:6px;padding:3px 10px;margin-bottom:6px;background:transparent;border:1px solid;}
+  .extag.prod{color:var(--wine);border-color:rgba(94,23,23,.35);}
+  .extag.serv{color:var(--gold);border-color:rgba(154,123,62,.42);}
+  .exrow{margin-bottom:14px;}
+  .exrow:last-child{margin-bottom:0;}
+  .exrow p{margin:0;font-weight:500;font-size:14.5px;}
+
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px;}
+  .pillv{background:var(--soft);color:var(--oxblood);font-weight:600;font-size:13.5px;padding:8px 15px;border-radius:999px;}
+  .hk{background:#fff;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-weight:500;font-size:14.5px;box-shadow:var(--shadow-sm);}
+  .hk.bad{background:#fbeae6;}
+  .hk.good{background:#e9f0e2;}
+  .hk small{display:block;color:var(--ink-soft);font-weight:500;margin-top:3px;}
+  .plat{background:var(--soft);border-radius:var(--radius-sm);padding:20px;}
+  .plat h4{margin:0 0 10px;color:var(--oxblood);font-size:16px;font-weight:700;}
+  .tip{display:flex;gap:12px;align-items:flex-start;background:var(--butter);border:1px solid rgba(154,123,62,.25);border-radius:var(--radius-sm);padding:16px 18px;margin-top:24px;font-weight:500;line-height:1.6;}
+  .tip .tip-ico{flex-shrink:0;font-size:18px;line-height:1.5;}
+  .tip strong{color:var(--oxblood);}
+
+  /* method timeline */
+  .steps{position:relative;margin:10px 0 0;padding-left:6px;}
+  .step{display:flex;gap:18px;padding:0 0 20px;position:relative;}
+  .step:not(:last-child)::before{content:"";position:absolute;left:23px;top:40px;bottom:-2px;width:1px;background:var(--line);}
+  .step-time{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:#fff;border:1px solid var(--oxblood);color:var(--oxblood);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.05;z-index:1;}
+  .step-time.cta{background:var(--oxblood);color:var(--cream);}
+  .step-txt b{color:var(--oxblood);font-size:15.5px;}
+  .step-txt span{display:block;color:var(--ink-soft);font-weight:500;font-size:14px;}
+  .pi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+  .pi{background:var(--sky);border-radius:12px;padding:16px;}
+  .pi b{display:block;color:var(--oxblood);margin-bottom:5px;font-size:14.5px;}
+  .pi span{font-weight:500;font-size:14px;}
+
+  /* calendar */
+  .opt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px;}
+  .opt{position:relative;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);cursor:pointer;transition:transform .2s,box-shadow .2s;}
+  .opt:hover{transform:translateY(-4px);box-shadow:0 22px 44px -20px rgba(40,21,21,.42);}
+  .opt.p-sage{border:1.5px solid var(--dot-sage);}
+  .opt.p-blush{border:1.5px solid var(--dot-blush);}
+  .opt.p-sky{border:1.5px solid var(--dot-sky);}
+  .opt.selected{outline:2.5px solid var(--oxblood);outline-offset:1px;}
+  .opt h4{margin:0 0 14px;color:var(--oxblood);font-size:17px;font-weight:700;padding-right:28px;}
+  .opt .flow{font-weight:600;color:var(--wine);font-size:14.5px;}
+  .opt-dot{position:absolute;top:20px;right:20px;width:22px;height:22px;border-radius:50%;border:2px solid rgba(61,12,12,.28);transition:.2s;}
+  .opt.selected .opt-dot{background:var(--oxblood);border-color:var(--oxblood);}
+  .opt.selected .opt-dot::after{content:"";position:absolute;left:6px;top:3px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(40deg);}
+
+  .turn{background:var(--butter);border:1px solid rgba(154,123,62,.22);border-radius:var(--radius);padding:38px;margin-top:30px;box-shadow:var(--shadow);}
+  .turn h3{font-size:20px;font-weight:700;color:var(--oxblood);margin:0 0 14px;}
+  .count-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0 6px;}
+  .count{background:#fff;border-radius:var(--radius-sm);padding:16px;text-align:center;box-shadow:var(--shadow-sm);}
+  .count label{display:block;font-weight:600;color:var(--oxblood);font-size:14px;margin-bottom:10px;}
+  .count input{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;font-family:var(--font);font-size:22px;font-weight:700;text-align:center;color:var(--oxblood);background:var(--cream);}
+  .count input:focus{outline:none;border-color:var(--gold);}
+  .count-total{font-weight:600;color:var(--oxblood);font-size:14px;margin:0 0 16px;min-height:18px;}
+  .action-card{background:rgba(61,12,12,.06);border:1px solid rgba(61,12,12,.10);border-radius:var(--radius-sm);padding:16px 18px;margin-top:18px;font-weight:500;line-height:1.6;}
+  .action-card strong{color:var(--oxblood);}
+
+  .action{background:none;border:none;padding:0;margin:30px 0 0;font-weight:500;color:var(--ink);line-height:1.6;}
+  .action strong{color:var(--oxblood);}
+  .about-card{background:rgba(255,255,255,.09);border:1px solid rgba(177,150,92,.32);border-radius:var(--radius-sm);padding:20px 22px;margin-top:10px;}
+  .about-card p{margin:0;color:var(--cream);font-size:15.5px;}
+  .about .pullquote{font-size:19px;font-weight:700;color:var(--cream);line-height:1.4;margin:8px 0 18px;}
+  .pill-list{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:10px 0 0;padding:0;}
+  .pill-list li{padding:9px 16px;border-radius:999px;font-weight:600;font-size:14px;color:var(--maroon);line-height:1.35;}
+  .pill-list li::before{display:none;}
+  .pill-list li:nth-child(1){background:#fbe3e7;}
+  .pill-list li:nth-child(2){background:#e79aa6;}
+  .pill-list li:nth-child(3){background:#f7ccd2;}
+  .pill-list li:nth-child(4){background:#d98b95;}
+  .pill-list li:nth-child(5){background:#fad6da;}
+  .pill-list li:nth-child(6){background:#e3a2ab;}
+
+  /* to-do list */
+  .todo-grid{display:flex;flex-direction:column;gap:12px;margin:6px 0 0;}
+  .todo{display:flex;align-items:flex-start;gap:14px;background:var(--cream);border:1px solid var(--line-soft);border-radius:var(--radius-sm);padding:16px 18px;box-shadow:var(--shadow-sm);cursor:pointer;transition:.2s;}
+  .todo:hover{border-color:var(--line);}
+  .todo-box{flex-shrink:0;width:24px;height:24px;border-radius:7px;border:2px solid var(--oxblood);margin-top:1px;position:relative;transition:.2s;}
+  .todo.done .todo-box{background:var(--oxblood);}
+  .todo.done .todo-box::after{content:"";position:absolute;left:7px;top:3px;width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(40deg);}
+  .todo p{margin:0;font-weight:500;}
+  .todo.done p{opacity:.5;text-decoration:line-through;}
+  .todo strong{color:var(--oxblood);}
+
+  /* deeper */
+  .deeper{background:var(--pink);color:var(--maroon);border-radius:var(--radius);padding:40px;box-shadow:var(--shadow);}
+  .deeper .eyebrow{background:var(--maroon);color:var(--pink);}
+  .deeper h2{color:var(--maroon);}
+  .deeper p{color:var(--maroon);}
+  .deeper a.link{color:var(--maroon);border-color:rgba(61,10,16,.5);}
+  .deeper a.link:hover{color:#7a1f28;border-color:var(--maroon);}
+  .deeper ul.clean li{color:var(--maroon);}
+  .deeper ul.clean li::before{background:var(--maroon);}
+  .deeper .phase{background:rgba(255,255,255,.55);border:1px solid rgba(61,10,16,.14);border-radius:var(--radius-sm);padding:16px 20px;margin-bottom:11px;}
+  .deeper .phase b{color:var(--maroon);font-size:16px;}
+  .deeper .phase p{margin:6px 0 0;font-size:14.5px;color:var(--maroon);}
+  .deeper .cta-btn{background:var(--maroon);color:var(--pink);}
+  .deeper .cta-btn:hover{background:#2a0709;color:var(--pink);}
+  .cta-btn{display:inline-block;font-weight:700;text-decoration:none;padding:15px 32px;border-radius:999px;margin-top:16px;font-size:15px;letter-spacing:.01em;transition:background .2s;}
+
+  .foot{padding:48px 24px 60px;text-align:center;display:flex;justify-content:center;}
+  .foot p{max-width:700px;margin:0 auto;font-size:12.5px;color:var(--ink-soft);font-weight:400;line-height:1.7;text-align:center;}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:.6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* login gate */
+  .gate{position:fixed;inset:0;z-index:1000;background:var(--oxblood);display:flex;align-items:center;justify-content:center;padding:24px;transition:opacity .45s ease;}
+  .gate.hide{opacity:0;pointer-events:none;}
+  .gate-inner{width:100%;max-width:430px;text-align:center;}
+  .gate-eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;}
+  .gate-title{font-size:clamp(32px,8.5vw,54px);font-weight:800;letter-spacing:-.02em;color:var(--cream);line-height:1.02;margin:0 0 14px;}
+  .gate-sub{color:rgba(250,246,238,.72);font-size:15px;font-weight:500;margin:0 0 26px;}
+  .gate-input{width:100%;background:rgba(250,246,238,.08);border:1px solid rgba(177,150,92,.4);border-radius:12px;padding:15px 18px;font-family:var(--font);font-size:16px;font-weight:600;color:var(--cream);text-align:center;letter-spacing:.04em;transition:.2s;}
+  .gate-input::placeholder{color:rgba(250,246,238,.4);font-weight:500;letter-spacing:.02em;}
+  .gate-input:focus{outline:none;border-color:var(--gold-soft);background:rgba(250,246,238,.13);}
+  .gate-btn{width:100%;margin-top:14px;background:var(--gold-soft);color:var(--maroon);border:none;font-family:var(--font);font-weight:800;font-size:15px;letter-spacing:.08em;text-transform:uppercase;padding:15px;border-radius:999px;cursor:pointer;transition:.2s;}
+  .gate-btn:hover{background:var(--cream);}
+  .gate-err{color:#f1a89f;font-size:13.5px;font-weight:600;margin-top:14px;min-height:18px;opacity:0;transition:.2s;}
+  .gate-err.show{opacity:1;}
+  .gate.shake .gate-inner{animation:shake .4s;}
+  .gate-foot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 26px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-top:1px solid rgba(177,150,92,.22);background:rgba(0,0,0,.18);}
+  .gate-foot-left{color:rgba(250,246,238,.65);white-space:nowrap;}
+  .gate-foot-right{color:var(--gold-soft);text-decoration:none;transition:.2s;white-space:nowrap;}
+  .gate-foot-right:hover{color:var(--cream);}
+  @keyframes shake{10%,90%{transform:translateX(-2px);}20%,80%{transform:translateX(4px);}30%,50%,70%{transform:translateX(-8px);}40%,60%{transform:translateX(8px);}}
+
+  @media(max-width:760px){
+    .grid-2{grid-template-columns:1fr;}
+    .opt-grid{grid-template-columns:1fr;}
+    .count-grid{grid-template-columns:1fr 1fr;}
+    .pi-grid{grid-template-columns:1fr;}
+    .hook-inner{padding-left:20px;}
+    .section{padding:52px 0;}
+    .card,.announce,.about,.deeper,.turn{padding:28px;}
+    .acc-inner,.acc-head{padding-left:24px;padding-right:24px;}
+    .about-grid{grid-template-columns:1fr;gap:24px;}
+    .about-img img{max-width:300px;margin:0 auto;}
+    .nav-logo{font-size:17px;}
+  }
+</style>
+
+<div id="unmuted">
+
+  <!-- LOGIN GATE -->
+  <div class="gate" id="gate">
+    <div class="gate-inner">
+      <div class="gate-eyebrow">UNMUTED MEMBERS ONLY</div>
+      <h1 class="gate-title">UNMUTED DASHBOARD</h1>
+      <p class="gate-sub">Enter your login code to access your dashboard. Login code is in your welcome email and Kajabi Library.</p>
+      <input class="gate-input" id="gateInput" type="text" placeholder="Login code" autocomplete="off" spellcheck="false" aria-label="Login code">
+      <button class="gate-btn" id="gateBtn" type="button">UNMUTE ME</button>
+      <div class="gate-err" id="gateErr">That code isn't right. Try again.</div>
+    </div>
+    <div class="gate-foot">
+      <span class="gate-foot-left">JESSICA PINILI ©</span>
+      <a class="gate-foot-right" href="https://www.jessicapinili.com/login" target="_blank" rel="noopener">LOGIN TO KAJABI</a>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">Un<span>muted</span></div>
+      <div class="nav-links">
+        <a href="#watch" data-spy="watch">Video</a>
+        <a href="#pillars" data-spy="pillars">System</a>
+        <a href="#hooks" data-spy="hooks">Hooks</a>
+        <a href="#method" data-spy="method">Psychology</a>
+        <a href="#calendar" data-spy="calendar">Calendar</a>
+        <a href="#deeper" data-spy="deeper">WMHQ</a>
+      </div>
+      <button class="nav-logout" id="navLogout" type="button">Log out</button>
+    </div>
+  </nav>
+
+  <!-- BANNER -->
+  <header class="banner">
+    <img class="banner-img" src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147575052/images/006685-623-70-1a48-5ff78ca6ee35_Marketing_Assets_Offers_6_.png" alt="Unmuted - The Short-Form Content Formula That Gets You Seen, Saved and Sold">
+  </header>
+
+  <!-- VIDEO -->
+  <section class="video-block" id="watch">
+    <div class="wrap">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/rnXCqQ6Yic0" title="Unmuted training" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIDE / BY THE END -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid-2">
+        <div class="card c-sage feature reveal">
+          <h3>Inside this dashboard:</h3>
+          <ul class="clean">
+            <li>The 3-Pillar Content System that makes you magnetic AND profitable</li>
+            <li>12 high-converting hooks you can use this week (on IG or TikTok)</li>
+            <li>The Psychology Method (how to make people NEED to watch until the end)</li>
+            <li>The Content Calendar Blueprint (so you never stare at a blank screen again)</li>
+          </ul>
+        </div>
+        <div class="card c-blush feature reveal">
+          <h3>By the end, you'll have:</h3>
+          <ul class="clean">
+            <li>A clear content strategy that positions you as THE expert</li>
+            <li>Hooks that stop the scroll on any platform (without feeling cringey)</li>
+            <li>A system to batch content in under 4 hours</li>
+            <li>Confidence in your own abilities to create quality content.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANNOUNCEMENT -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="announce reveal">
+        <h3>📣 ANNOUNCEMENT: Seen 3-Day Workshop. June 23-25, 2026.</h3>
+        <p><strong>Join a very exclusive 3-Day Workshop on uncovering</strong> why your content is attracting attention but not turning into consistent leads, enquiries, or sales.</p>
+        <p><span class="day">Day One:</span> You'll identify which layer of your content messaging is missing and know the exact words to fix so your audience understands why they need you.</p>
+        <p><span class="day">Day Two:</span> You'll map the content funnel that moves someone from first scroll to paying client, so your content stops sitting there looking cute and starts doing its job.</p>
+        <p><span class="day">Day Three:</span> You'll build a repeatable, season-proof content system that creates leads consistently without relying on burnout, overthinking, or constant grinding.</p>
+        <p style="margin-bottom:0;"><strong>Limited spots.</strong> <a href="https://www.jessicapinili.com/seenworkshop-june" class="link" target="_blank" rel="noopener">JOIN HERE.</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" style="padding-top:0;" id="about">
+    <div class="wrap">
+      <div class="about reveal">
+        <div class="about-grid">
+          <div class="about-img">
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2162592122/settings_images/5b1abd-4cf-cfd7-fe14-112df25a3f_WMHQ_Mockups_11_.png" alt="Jess Pinili">
+          </div>
+          <div class="about-text">
+            <div class="eyebrow">A lil about me</div>
+            <h2 class="title">I'm Jess Pinili 👋🏾</h2>
+            <p>I'm a Business Strategist + Mindset Coach who helps brand founders and creators build a buyer-ready audience while dissolving the fear of visibility.</p>
+            <p>You know the drill: Post daily. Share tips. Dance for the algorithm. Check all the boxes. I did that too. And I was miserable. Not because I was doing it wrong or there was a "trick..." But because I was doing it scared!!!</p>
+            <p>Constantly editing myself, diluting my message, and creating content that looked good on paper but did exactly nothing for my business 😬</p>
+            <p class="pullquote">Turns out, I didn't need more content or a trend. I needed to stop muting myself.</p>
+            <p>Unmuted is what I built for the version of me who was tired of performing and ready to actually be heard. It's the framework that teaches you how to say what you mean, own your damn presence, and create content that doesn't just exist, it converts 😉</p>
+            <div class="about-card"><p style="margin-bottom:0;">So. Your Unmuted Dashboard is ready. Your voice? Also ready. Let's make your next chapter the one where people don't just scroll past you, they stop, listen, and buy. Everything I shows the magic inside <a href="https://www.womanmasteryhq.com" class="link" target="_blank" rel="noopener" style="color:var(--gold-soft);border-color:var(--gold-soft);">Woman Mastery HQ Membership.</a></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="section warm" id="pillars">
+    <div class="wrap">
+      <div class="eyebrow reveal">3 Pillar Content System</div>
+      <h2 class="title reveal">You only need 3 types of content to build authority AND make sales.</h2>
+
+      <div class="pillar-grid">
+        <div class="acc pillar p-sage reveal">
+          <div class="acc-head">
+            <div class="acc-titlewrap"><span class="acc-title">Pillar 1: Authority Content</span><span class="acc-sub">(The "I'm the expert" pillar)</span></div>
+            <span class="chev">+</span>
+          </div>
+          <div class="acc-body"><div class="acc-inner">
+            <p>This is content that positions you as THE person in your space 🤓</p>
+            <p style="margin-bottom:6px;"><strong>What it does:</strong></p>
+            <ul class="clean" style="margin-bottom:8px;"><li>Builds trust</li><li>Shows your unique POV</li><li>Makes people think "damn, she gets it"</li></ul>
+            <p style="margin-bottom:6px;"><strong>Examples:</strong></p>
+            <ul class="ex-list">
+              <li>"3 things I wish every [your niche] knew about [topic]"</li>
+              <li>"The biggest mistake I see [niche] making with [problem]"</li>
+              <li>"Here's what no one tells you about [industry myth]"</li>
+            </ul>
+            <div class="wmhq-box"><span class="wlabel">Where WMHQ comes in:</span>Inside WMHQ, you learn how to create Authority Content that doesn't just educate, it positions you as the obvious choice when someone is ready to buy. You'll learn how to position yourself in a way that shares value without giving away your entire offer.</div>
+          </div></div>
+        </div>
+
+        <div class="acc pillar p-blush reveal">
+          <div class="acc-head">
+            <div class="acc-titlewrap"><span class="acc-title">Pillar 2: Conversion Content</span><span class="acc-sub">(The "here's how I can help you" pillar)</span></div>
+            <span class="chev">+</span>
+          </div>
+          <div class="acc-body"><div class="acc-inner">
+            <p>This is where you bridge the gap between free value and paid solutions.</p>
+            <p style="margin-bottom:6px;"><strong>What it does:</strong></p>
+            <ul class="clean" style="margin-bottom:8px;"><li>Shows your process</li><li>Teases your framework</li><li>Makes people curious about your offer</li></ul>
+            <p style="margin-bottom:6px;"><strong>Examples:</strong></p>
+            <ul class="ex-list">
+              <li>"Inside [your program], this is how we solve [specific problem]"</li>
+              <li>"The 3 step method I use with clients to [transformation]"</li>
+              <li>"Here's what you get when you work with me (and why it works)"</li>
+            </ul>
+            <div class="wmhq-box"><span class="wlabel">💡 Pro tip:</span>You're not giving away the house here. You're showing them the what and the why, but the how lives inside your paid offer.</div>
+            <div class="wmhq-box"><span class="wlabel">Where WMHQ comes in:</span>Inside WMHQ, we teach you how to create conversion content that doesn't feel salesy, but consistently drives DMs, applications, and sales. We also break down the psychology behind buying, so you know exactly how to move someone from "interested" to "invested."</div>
+          </div></div>
+        </div>
+
+        <div class="acc pillar p-sky reveal">
+          <div class="acc-head">
+            <div class="acc-titlewrap"><span class="acc-title">Pillar 3: Connection Content</span><span class="acc-sub">(The "I'm a real human" pillar)</span></div>
+            <span class="chev">+</span>
+          </div>
+          <div class="acc-body"><div class="acc-inner">
+            <p>This is the content that makes people like you, not just respect you.</p>
+            <p style="margin-bottom:6px;"><strong>What it does:</strong></p>
+            <ul class="clean" style="margin-bottom:8px;"><li>Builds relatability</li><li>Creates emotional connection</li><li>Makes people want to be in your world</li></ul>
+            <p style="margin-bottom:6px;"><strong>Examples:</strong></p>
+            <ul class="ex-list">
+              <li>BTS of your day/business</li>
+              <li>Your journey/founder story moments</li>
+              <li>Hot takes and unpopular opinions</li>
+              <li>"Here's what I'm learning right now"</li>
+            </ul>
+            <div class="wmhq-box"><span class="wlabel">🪄 The magic:</span>When you mix Authority + Conversion + Connection, you become someone people trust, want to learn from, AND want to buy from.</div>
+            <div class="wmhq-box"><span class="wlabel">Where WMHQ comes in:</span>Inside WMHQ, you'll also learn how to show up authentically without oversharing, using personal stories and vulnerability strategically while balancing relatability with aspiration.</div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOOKS -->
+  <section class="section" id="hooks">
+    <div class="wrap">
+      <div class="eyebrow reveal">12 Hooks to STOP the Scroll</div>
+      <h2 class="title reveal">Tap any hook to see the formula and examples.</h2>
+      <p class="lead reveal">Switch between the three categories. Each hook opens up with a fill-in-the-blank formula plus a product-based and service-based example.</p>
+
+      <div class="tabs reveal">
+        <button class="tab active" data-tab="authority">Authority Hooks</button>
+        <button class="tab" data-tab="conversion">Conversion Hooks</button>
+        <button class="tab" data-tab="connection">Connection Hooks</button>
+      </div>
+
+      <div class="panel active" id="authority">
+        <p class="lead" style="margin-bottom:18px;">These position you as the expert and build trust with your audience.</p>
+        <div class="hook">
+          <div class="hook-head"><div class="hook-num">1</div><div class="hook-line">"3 things I wish every [niche] knew about [topic]"</div><div class="chev">+</div></div>
+          <div class="hook-body"><div class="hook-inner">
+            <div class="formula"><span class="formula-txt"><b>Formula:</b> "3 things I wish every [your ideal client] knew about [their main problem/desire]"</span><button class="copy-btn" type="button">Copy</button></div>
+            <div class="exrow"><span class="extag prod">Product</span><p>"3 things I wish every small business owner knew about product photography"</p></div>
+            <div class="exrow"><span class="extag serv">Service</span><p>"3 things I wish every millennial woman knew about feminine energy in your relationships"</p></div>
+          </div></div>
+        </div>
+        <div class="hook">
+          <div class="hook-head"><div class="hook-num">2</div><div class="hook-line">"The biggest mistake I see [niche] making with [problem]"</div><div class="chev">+</div></div>
+          <div class="hook-body"><div class="hook-inner">
+            <div class="formula"><span class="formula-txt"><b>Formula:</b> "The biggest mistake I see [your ideal client] making with [specific aspect of their problem]"</span><button class="copy-btn" type="button">Copy</button></div>
+            <div class="exrow"><span class="extag prod">Product</span><p>"The biggest mistake I see candle brands making with their packaging design"</p></div>
+            <div class="exrow"><span class="extag serv">Service</span><p>"The biggest mistake I see fitness coaches making with their discovery calls"</p></div>
+          </div></div>
+        </div>
+        <div class="hook">
+          <div class="hook-head"><div class="hook-num">3</div><div class="hook-line">"Here's what no one tells you about [topic]"</div><div class="chev">+</div></div>
+          <div class="hook-body"><div class="hook-inner">
+            <div class="formula"><span class="formula-txt"><b>Formula:</b> "Here's what no one tells you about [industry practice/common belief]"</span><button class="copy-btn" type="button">Copy</button></div>
+            <div class="exrow"><span class="extag prod">Product</span><p>"Here's what no one tells you about Etsy SEO in 2026"</p></div>
+            <div class="exrow"><span class="extag serv">Service</span><p>"Here's what no one tells you about scaling past $10k months"</p></div>
+          </div></div>
+        </div>
+        <div class="hook">
+          <div class="hook-head"><div class="hook-num">4</div><div class="hook-line">"If you're struggling with [problem], here's why"</div><div class="chev">+</div></div>
+          <div class="hook-body"><div class="hook-inner">
+            <div class="formula"><span class="formula-txt"><b>Formula:</b> "If you're struggling with [specific pain point], here's why"</span><button class="copy-btn" type="button">Copy</button></div>
+            <div class="exrow"><span class="extag prod">Product</span><p>"If your handmade products aren't selling, here's why"</p></div>
+            <div class="exrow"><span class="extag serv">Service</span><p>"If your vlogs get engagement but no brand deals, here's why"</p></div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="panel" id="conversion">
+        <p class="lead" style="margin-bottom:18px;">These bridge the gap between your free content and your paid offers.</p>
+        <div class="hook">
+          <div class="hook-head"><div class="hook-num">5</div><div class="hook-line">"Inside [your offer], this is how we [solve specific problem]"</div><div class="chev">+</div></div>
+          <div class="hook-body"><div class="hook-inner">
+            <div class="formula"><span class="formula-txt"><b>Formula:</b> "Inside [your program/product name], this is how we [specific transformation]"</span><button class="copy-btn" type="button">Copy</button></div>
+            <div class="exrow"><span class="extag prod">Product</span><p>"Inside The Brand Kit, this is how we help you create a cohesive visual identity in under 2 hours"</p></div>
+            <div class="exrow"><span class="extag serv">Service</span><p>"Inside [group coaching], this is how we turn your checkout page into a 10/10 success rate"</p></div>
+          </div></div>
+        </div>
+        <div class="hook">
+          <div class="hook-head"><div class="hook-num">6</div><div class="hook-line">"Here's the exact process I use to [transformation]"</div><div class="chev">+</div></div>
+          <div class="hook-body"><div class="hook-inner">
+            <div class="formula"><span class="formula-txt"><b>Formula:</b> "Here's the exact [number]-step process I use to [desired result]"</span><button class="copy-btn" type="button">Copy</button></div>
+            <div class="exrow"><span class="extag prod">Product</span><p>"Here's the exact 4-step process I use to photograph products that sell out"</p></div>
+            <div class="exrow"><span class="extag serv">Service</span><p>"Here's the exact 5-step process I use to convert cold DMs into paying clients"</p></div>
+          </div></div>
+        </div>
+        <div class="hook">
+          <div class="hook-head"><div class="hook-num">7</div><div class="hook-line">"This is what you get when you work with me (and why it works)"</div><div class="chev">+</div></div>
+          <div class="hook-body"><div class="hook-inner">
+            <div class="formula"><span class="formula-txt"><b>Formula:</b> "This is what you get when you [buy from me/work with me] (and why it works)"</span><button class="copy-btn" type="button">Copy</button></div>
+            <div class="exrow"><span class="extag prod">Product</span><p>"This is what you get when you invest in a custom brand suite (and why templates don't cut it)"</p></div>
+            <div class="exrow"><span class="extag serv">Service</span><p>"This is what you get in my signature energy healing session (and why it's different from the youtube videos you watch)"</p></div>
+          </div></div>
+        </div>
+        <div class="hook">
+          <div class="hook-head"><div class="hook-num">8</div><div class="hook-line">"The difference between [free solution] and [your paid solution]"</div><div class="chev">+</div></div>
+          <div class="hook-body"><div class="hook-inner">
+            <div class="formula"><span class="formula-txt"><b>Formula:</b> "The difference between [free/cheap option] and [your premium offer]"</span><button class="copy-btn" type="button">Copy</button></div>
+            <div class="exrow"><span class="extag prod">Product</span><p>"The difference between our towels and Target towels (you'd never guess either!)"</p></div>
+            <div class="exrow"><span class="extag serv">Service</span><p>"The difference between my nutrition guide vs what ChatGPT tells you"</p></div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="panel" id="connection">
+        <p class="lead" style="margin-bottom:18px;">These make people relate to you as a human and build emotional connection.</p>
+        <div class="hook">
+          <div class="hook-head"><div class="hook-num">9</div><div class="hook-line">"Can we normalise [unpopular opinion]?"</div><div class="chev">+</div></div>
+          <div class="hook-body"><div class="hook-inner">
+            <div class="formula"><span class="formula-txt"><b>Formula:</b> "Can we normalise [thing you believe that goes against the grain]?"</span><button class="copy-btn" type="button">Copy</button></div>
+            <div class="exrow"><span class="extag prod">Product</span><p>"Can we normalise charging premium prices for handmade products?"</p></div>
+            <div class="exrow"><span class="extag serv">Service</span><p>"Can we normalise turning off DMs when you're not working?"</p></div>
+          </div></div>
+        </div>
+        <div class="hook">
+          <div class="hook-head"><div class="hook-num">10</div><div class="hook-line">"I used to think [old belief] until I realised [new belief]"</div><div class="chev">+</div></div>
+          <div class="hook-body"><div class="hook-inner">
+            <div class="formula"><span class="formula-txt"><b>Formula:</b> "I used to think [limiting belief] until I realised [empowering truth]"</span><button class="copy-btn" type="button">Copy</button></div>
+            <div class="exrow"><span class="extag prod">Product</span><p>"I used to think I needed to leave the house for [insert product] until I realised [type of product] is easier at home"</p></div>
+            <div class="exrow"><span class="extag serv">Service</span><p>"I used to think I needed a META Ads specialist until I realised the truth behind building a marketing plan"</p></div>
+          </div></div>
+        </div>
+        <div class="hook">
+          <div class="hook-head"><div class="hook-num">11</div><div class="hook-line">"Here's what I'm learning about [relevant topic]"</div><div class="chev">+</div></div>
+          <div class="hook-body"><div class="hook-inner">
+            <div class="formula"><span class="formula-txt"><b>Formula:</b> "Here's what I'm learning about [current challenge/experience]"</span><button class="copy-btn" type="button">Copy</button></div>
+            <div class="exrow"><span class="extag prod">Product</span><p>"Here's what I'm learning about sustainable packaging (and why it's harder than I thought)"</p></div>
+            <div class="exrow"><span class="extag serv">Service</span><p>"Here's what I'm learning about running a business with ADHD (and why my old systems weren't working)"</p></div>
+          </div></div>
+        </div>
+        <div class="hook">
+          <div class="hook-head"><div class="hook-num">12</div><div class="hook-line">"POV: You finally figured out [relatable situation]"</div><div class="chev">+</div></div>
+          <div class="hook-body"><div class="hook-inner">
+            <div class="formula"><span class="formula-txt"><b>Formula:</b> "POV: You finally figured out [pain point solution]"</span><button class="copy-btn" type="button">Copy</button></div>
+            <div class="exrow"><span class="extag prod">Product</span><p>"POV: You finally figured out how to keep your indoor plants from dying after 2 weeks"</p></div>
+            <div class="exrow"><span class="extag serv">Service</span><p>"POV: You finally figured out how to pitch your portfolio to investors"</p></div>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- COPY ALL HOOKS -->
+      <div class="copyall reveal">
+        <div class="copyall-txt">
+          <span class="copyall-ico">📝</span>
+          <div>
+            <div class="copyall-title">Copy every hook for your notes app</div>
+            <div class="copyall-sub">All 12 hooks, ready to paste with a space between each.</div>
+          </div>
+        </div>
+        <button class="copyall-btn" id="copyAllHooks" type="button">Copy</button>
+      </div>
+
+      <!-- HOOK ANATOMY -->
+      <div class="card reveal" style="margin-top:28px;">
+        <h3>What makes a hook work</h3>
+        <p style="font-weight:600;margin-bottom:4px;">The formula for a strong hook:</p>
+        <div class="pill-row">
+          <span class="pillv">Pain/Problem + Promise</span>
+          <span class="pillv">Curiosity + Specificity</span>
+          <span class="pillv">Relatability + Intrigue</span>
+        </div>
+        <div class="grid-2" style="margin-top:22px;">
+          <div>
+            <p style="font-weight:700;color:var(--oxblood);margin-bottom:10px;">Bad hook examples:</p>
+            <div class="hk bad">"Let me tell you about my content strategy"<small>(too vague, no pain point)</small></div>
+            <div class="hk bad">"Here are some tips for your business"<small>(boring, no curiosity)</small></div>
+            <div class="hk bad">"Today I want to share something with you"<small>(slow, no hook)</small></div>
+          </div>
+          <div>
+            <p style="font-weight:700;color:var(--oxblood);margin-bottom:10px;">Good hook examples:</p>
+            <div class="hk good">"This is for the woman who's tired of 'cute' jewellery and wants something that actually feels like her."</div>
+            <div class="hk good">"Swimwear for women who are done dressing for other people's comfort."</div>
+            <div class="hk good">"For people who are tired of living with pain like it's normal."</div>
+          </div>
+        </div>
+        <p style="font-weight:700;color:var(--oxblood);margin:24px 0 10px;">Platform-specific hook tips:</p>
+        <div class="grid-2">
+          <div class="plat">
+            <h4>Instagram</h4>
+            <ul class="clean" style="font-size:14.5px;">
+              <li>Text overlays are KING (most people watch with sound off)</li>
+              <li>First frame needs to be visually interesting</li>
+              <li>You have 1-2 seconds before they swipe</li>
+            </ul>
+          </div>
+          <div class="plat">
+            <h4>TikTok</h4>
+            <ul class="clean" style="font-size:14.5px;">
+              <li>Audio matters more (but still add captions)</li>
+              <li>Fast paced openings perform better</li>
+              <li>You have 2-3 seconds before they scroll</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tip"><span class="tip-ico">💡</span><div>Your hook has 3 seconds to stop the scroll ⏰ If your text overlay or opening line doesn't create immediate curiosity or relatability, they're gone.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PSYCHOLOGY METHOD -->
+  <section class="section warm" id="method">
+    <div class="wrap">
+      <div class="eyebrow reveal">The Psychology Method</div>
+      <h2 class="title reveal">How to make people watch until the end.</h2>
+
+      <div class="acc-list">
+        <div class="acc open reveal">
+          <div class="acc-head"><span class="acc-title">Part 1 of 3 · Why retention matters</span><span class="chev">+</span></div>
+          <div class="acc-body"><div class="acc-inner">
+            <p>Getting someone to stop scrolling is one thing. Getting them to stay and watch your entire video? That's where the magic happens. <strong>Retention rate = algorithm love</strong> ❤️ The longer people watch your videos, the more the algorithm shows them to new people 🥳 So this isn't just about creating "good content" - it's about understanding the psychology of what makes someone unable to look away.</p>
+            <p style="margin-bottom:0;">Inside WMHQ, you learn how to understand WHY people watch (or leave), and how you can engineer content that keeps them glued to the screen. This works on Instagram Reels, TikTok, YouTube Shorts - any short-form platform 👆</p>
+          </div></div>
+        </div>
+
+        <div class="acc reveal">
+          <div class="acc-head"><span class="acc-title">Part 2 of 3 · The pattern interrupt</span><span class="chev">+</span></div>
+          <div class="acc-body"><div class="acc-inner">
+            <p>After your hook, you need to interrupt their expectation. This is where most people lose viewers - they go straight into teaching without creating more curiosity.</p>
+            <p style="font-weight:700;color:var(--oxblood);">🪝 The formula: Hook → Pattern Interrupt → Payoff</p>
+            <p style="font-weight:600;margin-bottom:8px;">Examples of pattern interrupts:</p>
+            <div class="pi-grid">
+              <div class="pi"><b>The Contrast</b><span>"I thought I needed better products. I actually needed better tools."</span></div>
+              <div class="pi"><b>The Myth-Bust</b><span>"Everyone says just 'think positive'. But I was thinking positive and still repeating the same life."</span></div>
+              <div class="pi"><b>The Personal Reveal</b><span>"I thought I wasn't cut out for business."</span></div>
+              <div class="pi"><b>The Unexpected Stat</b><span>"I didn't realise how much safer my pilates practice could feel with these socks"</span></div>
+            </div>
+          </div></div>
+        </div>
+
+        <div class="acc reveal">
+          <div class="acc-head"><span class="acc-title">Part 3 of 3 · The open loop</span><span class="chev">+</span></div>
+          <div class="acc-body"><div class="acc-inner">
+            <p>This is the secret to getting people to watch until the end (and boosting your retention rate, which makes the algorithm show your content to MORE people). At the beginning of your video, tease something that won't be revealed until the end. This creates an "open loop" in the viewer's brain, and our brains HATE open loops. We need closure. So they keep watching to get the answer.</p>
+            <p style="font-weight:700;color:var(--oxblood);margin:18px 0 14px;">How to structure this in your video:</p>
+            <div class="steps">
+              <div class="step"><div class="step-time">0-3s</div><div class="step-txt"><b>Hook</b><span>Stop the scroll</span></div></div>
+              <div class="step"><div class="step-time">3-5s</div><div class="step-txt"><b>Open Loop</b><span>Tell them what's coming at the end</span></div></div>
+              <div class="step"><div class="step-time">5-10s</div><div class="step-txt"><b>Pattern Interrupt</b><span>Create curiosity</span></div></div>
+              <div class="step"><div class="step-time">10-45s</div><div class="step-txt"><b>Value/Teach</b><span>Deliver the content</span></div></div>
+              <div class="step"><div class="step-time">45-60s</div><div class="step-txt"><b>Close the Loop</b><span>Deliver on your promise</span></div></div>
+              <div class="step"><div class="step-time cta">CTA</div><div class="step-txt"><b>Last 3 seconds</b><span>Tell them what to do next</span></div></div>
+            </div>
+            <div class="wmhq-box" style="margin-top:24px;">
+              <span class="wlabel">Want to go deeper on The Psychology Method?</span>
+              Inside WMHQ, we break down the full psychology behind content that converts (with personalised audits!) including:
+              <ul class="clean" style="margin-top:6px;">
+                <li>How to structure videos for maximum retention (platform-specific strategies)</li>
+                <li>Advanced pattern interrupt techniques for different content types</li>
+                <li>The Content System (so you know which videos actually make you money)</li>
+                <li>40+ pre-written hooks using this exact psychology method</li>
+                <li>Platform-specific optimisation (what works on TikTok vs Instagram)</li>
+              </ul>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section class="section" id="calendar">
+    <div class="wrap">
+      <div class="eyebrow reveal">The Content Calendar Blueprint</div>
+      <h2 class="title reveal">Pick the rhythm that fits your life.</h2>
+      <p class="lead reveal" style="margin-bottom:24px;">Tap an option to choose your rhythm.</p>
+
+      <div class="opt-grid">
+        <div class="opt p-sage reveal"><span class="opt-dot"></span>
+          <h4>Option 1: The 4-Week Rotation</h4>
+          <p>Follow the weeks in order, cycling through</p>
+          <p class="flow" style="margin-bottom:0;">Authority → Conversion → Connection → Transformation</p>
+        </div>
+        <div class="opt p-blush reveal"><span class="opt-dot"></span>
+          <h4>Option 2: The Weekly Mix</h4>
+          <p style="margin-bottom:6px;">Each week, post:</p>
+          <ul class="clean" style="font-size:14.5px;"><li>2 Authority pieces</li><li>1 Conversion piece</li><li>2 Connection pieces</li><li>1 Transformation piece</li></ul>
+        </div>
+        <div class="opt p-sky reveal"><span class="opt-dot"></span>
+          <h4>Option 3: The Batch Day</h4>
+          <p style="margin-bottom:6px;">Pick one day a month to:</p>
+          <ul class="clean" style="font-size:14.5px;"><li>Film 4 Authority videos</li><li>Film 2 Conversion videos</li><li>Film 4 Connection videos</li><li>Film 2 Transformation videos</li><li>Schedule them according to your chosen pattern</li></ul>
+        </div>
+      </div>
+
+      <p class="action reveal" style="margin-top:38px;"><strong>🪄 The beauty of this system?</strong> You always know what type of content you're creating. No more staring at a blank screen wondering "what should I post today?"</p>
+
+      <div class="turn reveal">
+        <h3>📝 YOUR TURN:</h3>
+        <p>Look at your content from the last 30 days. Count how many pieces of each type you posted:</p>
+        <div class="count-grid">
+          <div class="count"><label>Authority</label><input type="number" min="0" placeholder="0"></div>
+          <div class="count"><label>Conversion</label><input type="number" min="0" placeholder="0"></div>
+          <div class="count"><label>Connection</label><input type="number" min="0" placeholder="0"></div>
+          <div class="count"><label>Transformation</label><input type="number" min="0" placeholder="0"></div>
+        </div>
+        <p class="count-total" id="countTotal"></p>
+        <p>Most people over-index on Connection and under-deliver on Conversion - which is exactly why their content doesn't lead to sales.</p>
+        <div class="action-card">🎯 <strong>Action step:</strong> Plan out this week using ONE of the content themes above. Batch 3-5 pieces of that content type and watch what happens.</div>
+        <p style="margin:18px 0 0;">Inside WMHQ, you don't just get a vault of content and marketing systems to plan, understand, and execute, you get weekly personalised audits and business mastermind calls to make sure you're actually implementing what matters.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO DO NEXT -->
+  <section class="section warm">
+    <div class="wrap">
+      <div class="card reveal">
+        <div class="eyebrow">What to do next</div>
+        <p style="font-weight:700;color:var(--oxblood);">You now have:</p>
+        <ul class="clean check" style="margin-bottom:20px;">
+          <li>The 3-Pillar Content System</li>
+          <li>12 high-converting hooks with product + service examples</li>
+          <li>The Psychology Method for retention with full video structure</li>
+          <li>A 4-week content calendar framework with detailed content ideas</li>
+        </ul>
+        <p style="font-weight:700;color:var(--oxblood);margin-bottom:14px;">Here's what I want you to do right now:</p>
+        <div class="todo-grid">
+          <div class="todo"><span class="todo-box"></span><p><strong>Pick ONE pillar</strong> to focus on this week (Authority, Conversion, or Connection)</p></div>
+          <div class="todo"><span class="todo-box"></span><p><strong>Choose 3 hooks</strong> from the list that feel aligned with your brand</p></div>
+          <div class="todo"><span class="todo-box"></span><p><strong>Batch 3 pieces of content</strong> using The Psychology Method structure</p></div>
+        </div>
+        <p class="action">👆 <strong>Post them on Instagram, TikTok, or both</strong> and watch what happens</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- READY TO GO DEEPER -->
+  <section class="section" id="deeper">
+    <div class="wrap">
+      <div class="deeper reveal">
+        <div class="eyebrow">Ready to go deeper?</div>
+        <h2 class="title">UNMUTED is the foundation. WMHQ is the next level.</h2>
+        <p>UNMUTED gives you the foundation for creating content that converts. But inside <a href="https://www.womanmasteryhq.com" class="link" target="_blank" rel="noopener">Woman Mastery HQ Membership</a>, we take this to the next level:</p>
+        <p style="font-weight:700;color:var(--maroon);margin:18px 0 6px;">What you get inside WMHQ:</p>
+        <p>The system, the support, and the strategy to create content that consistently attracts dream clients and makes sales.</p>
+        <ul class="pill-list">
+          <li>Sales focused content trainings</li>
+          <li>How to prep your content for ANY launch</li>
+          <li>Personalised content audits (I'll review your content and tell you exactly what to change)</li>
+          <li>The apps and tools I use to create high-performing content in less time</li>
+          <li>Real-time content experiments (I test new strategies and share what works)</li>
+          <li>Hot seat coaching sessions (get answers to your specific content struggles)</li>
+        </ul>
+        <p style="font-weight:700;color:var(--maroon);margin:22px 0 12px;">And this is only ONE phase of WMHQ (here's what the other 3 look like):</p>
+        <div class="phase"><b>Phase 1: Influence (Messaging &amp; Positioning)</b><p>We refine your messaging so people instantly get what you do, who it's for, and why you're the obvious choice. This is where you clarify your niche, sharpen your offers, and build a brand that attracts the right clients instead of chasing them.</p></div>
+        <div class="phase"><b>Phase 3: Cash (Sales &amp; Monetisation)</b><p>We turn attention into revenue. You learn how to sell without being salesy, price confidently, structure offers that convert, and build a simple sales system that brings in consistent income.</p></div>
+        <div class="phase"><b>Phase 4: Subconscious Mastery (Beliefs, Identity &amp; Nervous System)</b><p>This is the layer most people skip and why they keep hitting income ceilings. We rewire the beliefs, identity, and nervous system patterns that cap your growth, so your next level actually feels safe, sustainable, and embodied.</p></div>
+        <p style="margin-top:18px;">🪄 Together, WMHQ isn't just teaching you how to do business, it's teaching you how to become the person who can hold the level of success you want.</p>
+        <p style="margin-bottom:6px;">💻 <a href="https://www.womanmasteryhq.com" class="link" target="_blank" rel="noopener">Click HERE</a> to join or slide into my DM's <a href="https://www.instagram.com/jesspinili/" class="link" target="_blank" rel="noopener">HERE</a> if you have a question</p>
+        <a href="https://www.womanmasteryhq.com" class="cta-btn" target="_blank" rel="noopener">Join Woman Mastery HQ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <p>This work is the sole property of Jessica Pinili. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, or create derivative works in any capacity. All rights on intellectual property of this digital product are proprietary and reserved for exclusive use by Jessica Pinili alone.</p>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var root = document.getElementById('unmuted');
+
+    // login gate
+    var gate = root.querySelector('#gate');
+    if(gate){
+      var gInput = root.querySelector('#gateInput');
+      var gBtn = root.querySelector('#gateBtn');
+      var gErr = root.querySelector('#gateErr');
+      var tryUnlock = function(){
+        var code = (gInput.value || '').trim().toLowerCase();
+        if(code === 'unmuteme'){
+          gate.classList.add('hide');
+          setTimeout(function(){ gate.style.display = 'none'; }, 480);
+        } else {
+          gErr.classList.add('show');
+          gate.classList.add('shake');
+          setTimeout(function(){ gate.classList.remove('shake'); }, 450);
+        }
+      };
+      gBtn.addEventListener('click', tryUnlock);
+      gInput.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ tryUnlock(); } });
+      gInput.addEventListener('input', function(){ gErr.classList.remove('show'); });
+      setTimeout(function(){ gInput.focus(); }, 120);
+      var logoutBtn = root.querySelector('#navLogout');
+      if(logoutBtn){
+        logoutBtn.addEventListener('click', function(){
+          gate.style.display = 'flex';
+          void gate.offsetWidth;
+          gate.classList.remove('hide');
+          gInput.value = '';
+          gErr.classList.remove('show');
+          window.scrollTo({top:0, behavior:'auto'});
+          setTimeout(function(){ gInput.focus(); }, 150);
+        });
+      }
+    }
+
+    root.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var id = a.getAttribute('href');
+        if(id.length < 2) return;
+        var el = root.querySelector(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    var tabs = root.querySelectorAll('.tab');
+    tabs.forEach(function(t){
+      t.addEventListener('click', function(){
+        tabs.forEach(function(x){x.classList.remove('active');});
+        root.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
+        t.classList.add('active');
+        root.querySelector('#'+t.dataset.tab).classList.add('active');
+      });
+    });
+
+    root.querySelectorAll('.hook-head').forEach(function(h){
+      h.addEventListener('click', function(){ h.parentElement.classList.toggle('open'); });
+    });
+
+    // accordions
+    root.querySelectorAll('.acc-head').forEach(function(h){
+      h.addEventListener('click', function(){
+        var acc = h.parentElement, body = acc.querySelector('.acc-body');
+        if(acc.classList.contains('open')){ body.style.maxHeight='0px'; acc.classList.remove('open'); }
+        else { acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 'px'; }
+      });
+    });
+    function initAcc(){ root.querySelectorAll('.acc.open .acc-body').forEach(function(b){ b.style.maxHeight = b.scrollHeight + 'px'; }); }
+    initAcc(); window.addEventListener('load', initAcc);
+
+    // copy buttons
+    function fallbackCopy(text, cb){
+      var ta = document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.top='-9999px';
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(ta); cb && cb();
+    }
+    function copyText(text, btn){
+      var orig = btn.getAttribute('data-orig'); if(orig===null){ orig = btn.textContent; btn.setAttribute('data-orig', orig); }
+      var done = function(){ btn.textContent='Copied'; btn.classList.add('done'); setTimeout(function(){ btn.textContent=orig; btn.classList.remove('done'); },1400); };
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text, done); }); }
+      else { fallbackCopy(text, done); }
+    }
+    root.querySelectorAll('.copy-btn').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var f = btn.closest('.formula'); if(!f) return;
+        var txt = f.querySelector('.formula-txt').textContent.replace(/^\s*Formula:\s*/,'').trim();
+        copyText(txt, btn);
+      });
+    });
+    var copyAllBtn = root.querySelector('#copyAllHooks');
+    if(copyAllBtn){
+      copyAllBtn.addEventListener('click', function(){
+        var lines = [];
+        root.querySelectorAll('#hooks .hook').forEach(function(h){
+          var num = h.querySelector('.hook-num').textContent.trim();
+          var line = h.querySelector('.hook-line').textContent.trim();
+          lines.push(num + '. ' + line);
+        });
+        copyText(lines.join('\n\n'), copyAllBtn);
+      });
+    }
+
+    // calendar select
+    var opts = root.querySelectorAll('.opt');
+    opts.forEach(function(o){ o.addEventListener('click', function(){ opts.forEach(function(x){ x.classList.remove('selected'); }); o.classList.add('selected'); }); });
+
+    // to-do toggle
+    root.querySelectorAll('.todo').forEach(function(t){ t.addEventListener('click', function(){ t.classList.toggle('done'); }); });
+
+    // count total
+    var inputs = root.querySelectorAll('.count input');
+    var totalEl = root.querySelector('#countTotal');
+    function updTotal(){
+      var s = 0; inputs.forEach(function(i){ var v = parseInt(i.value,10); if(!isNaN(v) && v>0) s += v; });
+      if(totalEl){ totalEl.textContent = s>0 ? ('That is '+s+' pieces in the last 30 days.') : ''; }
+    }
+    inputs.forEach(function(i){ i.addEventListener('input', updTotal); });
+
+    // typing animation on section titles
+    function graphemes(str){
+      try{ if(window.Intl && Intl.Segmenter){ var seg = new Intl.Segmenter(undefined,{granularity:'grapheme'}); return Array.from(seg.segment(str), function(s){ return s.segment; }); } }catch(e){}
+      return Array.from(str);
+    }
+    var titles = root.querySelectorAll('h2.title');
+    titles.forEach(function(el){
+      el.dataset.full = el.textContent;
+      el.textContent = '';
+      var cur = document.createElement('span'); cur.className = 'tcursor'; el.appendChild(cur);
+    });
+    function typeTitle(el){
+      if(el.dataset.typed) return; el.dataset.typed = '1';
+      var chars = graphemes(el.dataset.full || '');
+      var cur = el.querySelector('.tcursor');
+      var i = 0;
+      (function step(){
+        if(i < chars.length){ cur.insertAdjacentText('beforebegin', chars[i]); i++; setTimeout(step, 30); }
+      })();
+    }
+    if('IntersectionObserver' in window){
+      var tObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ typeTitle(en.target); tObs.unobserve(en.target); } });
+      }, {threshold:0.55});
+      titles.forEach(function(el){ tObs.observe(el); });
+    } else { titles.forEach(function(el){ var c=el.querySelector('.tcursor'); if(c) c.remove(); el.textContent = el.dataset.full; }); }
+
+    // scrollspy
+    var spyLinks = root.querySelectorAll('.nav-links a[data-spy]');
+    var map = {}; spyLinks.forEach(function(a){ map[a.getAttribute('data-spy')] = a; });
+    var spySections = []; spyLinks.forEach(function(a){ var s = root.querySelector('#'+a.getAttribute('data-spy')); if(s) spySections.push(s); });
+    if('IntersectionObserver' in window){
+      var spyObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){
+            spyLinks.forEach(function(x){ x.classList.remove('active'); });
+            var id = en.target.getAttribute('id'); if(map[id]) map[id].classList.add('active');
+          }
+        });
+      }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+      spySections.forEach(function(s){ spyObs.observe(s); });
+    }
+
+    // reveal
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, {threshold:0.12});
+      root.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    } else { root.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); }); }
+  })();
+</script>
