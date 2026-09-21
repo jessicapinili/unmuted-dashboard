@@ -1,6 +1,8 @@
 <!-- ============================================================
      UNMUTED DASHBOARD
-     Video, DM, join, and workshop links are all wired in.
+     Login code: unmuteme
+     Terms / Privacy links and TikTok / YouTube socials are set to
+     href="#" until you send the real URLs.
 ============================================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -9,33 +11,15 @@
 
 <style>
   :root{
-    --oxblood:#3d0c0c;
-    --wine:#5e1717;
-    --bg:#f2f2f2;
-    --warm:#efe9de;
-    --soft:#ece5d7;
-    --ink:#2c1515;
-    --ink-soft:#6b5050;
-    --cream:#faf6ee;
-    --sage:#dde6d4;
-    --blush:#f4ddd9;
-    --sky:#d8e2ee;
-    --butter:#f6ecc6;
-    --pink:#F2C6D0;
-    --maroon:#3D0A10;
-    --clay:#cf9d86;
-    --dot-sage:#87a36c;
-    --dot-blush:#d4948a;
-    --dot-sky:#7e9ec7;
-    --gold:#9a7b3e;
-    --gold-soft:#b1965c;
-    --line:rgba(61,12,12,.14);
-    --line-soft:rgba(61,12,12,.08);
-    --shadow:0 18px 40px -22px rgba(40,21,21,.40);
-    --shadow-sm:0 10px 24px -14px rgba(40,21,21,.32);
-    --radius:18px;
-    --radius-sm:12px;
-    --font:"DM Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --oxblood:#3d0c0c;--wine:#5e1717;--bg:#f2f2f2;--warm:#efe9de;--soft:#ece5d7;
+    --ink:#2c1515;--ink-soft:#6b5050;--cream:#faf6ee;
+    --sage:#dde6d4;--blush:#f4ddd9;--sky:#d8e2ee;--butter:#f6ecc6;
+    --pink:#F2C6D0;--maroon:#3D0A10;--clay:#cf9d86;--hl:#f4d778;
+    --dot-sage:#87a36c;--dot-blush:#d4948a;--dot-sky:#7e9ec7;
+    --gold:#9a7b3e;--gold-soft:#b1965c;
+    --line:rgba(61,12,12,.14);--line-soft:rgba(61,12,12,.08);
+    --shadow:0 18px 40px -22px rgba(40,21,21,.40);--shadow-sm:0 10px 24px -14px rgba(40,21,21,.32);
+    --radius:18px;--radius-sm:12px;--font:"DM Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box;}
   body{margin:0;}
@@ -50,13 +34,14 @@
   .section{padding:76px 0;}
   .section.warm{background:var(--warm);}
 
-  .eyebrow{display:inline-block;background:var(--oxblood);color:var(--cream);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;border-radius:999px;margin-bottom:20px;}
-  .about .eyebrow{background:var(--cream);color:var(--oxblood);}
+  /* section label as highlight */
+  .eyebrow{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--oxblood);background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 90%,transparent 90%);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:1px 6px;margin-bottom:20px;}
+  .about .eyebrow{color:var(--cream);background:linear-gradient(transparent 12%,rgba(177,150,92,.55) 12%,rgba(177,150,92,.55) 90%,transparent 90%);}
+  .deeper .eyebrow{color:var(--maroon);background:linear-gradient(transparent 12%,#ffffff 12%,#ffffff 90%,transparent 90%);}
 
   h2.title{font-size:clamp(28px,5.4vw,42px);font-weight:800;line-height:1.1;margin:0 0 14px;color:var(--oxblood);letter-spacing:-.015em;min-height:1.1em;}
   .lead{font-size:clamp(16px,2.4vw,19px);color:var(--ink-soft);font-weight:500;max-width:660px;}
 
-  /* typing cursor */
   .tcursor{display:inline-block;width:2px;height:.95em;background:currentColor;margin-left:3px;vertical-align:-1px;animation:blink 1s step-end infinite;}
   @keyframes blink{50%{opacity:0;}}
 
@@ -76,12 +61,10 @@
   .banner{line-height:0;background:var(--oxblood);}
   .banner-img{display:block;width:100%;height:auto;}
 
-  /* video */
   .video-block{padding:56px 0 8px;}
   .video-wrap{position:relative;width:100%;padding-bottom:56.25%;border-radius:var(--radius);overflow:hidden;background:var(--oxblood);box-shadow:var(--shadow);}
   .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
-  /* cards */
   .card{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);}
   .card.c-sage{background:var(--sage);}
   .card.c-blush{background:var(--blush);}
@@ -98,18 +81,16 @@
   .p-blush ul.clean li::before{background:var(--dot-blush);}
   .p-sky ul.clean li::before{background:var(--dot-sky);}
 
-  /* announcement */
-  .announce{background:var(--butter);border:1px solid rgba(154,123,62,.22);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);}
-  .announce h3{font-size:20px;font-weight:700;color:var(--oxblood);margin:0 0 14px;}
-  .day{font-weight:700;color:var(--oxblood);}
-
-  /* about */
-  .about{background:var(--oxblood);color:var(--cream);border-radius:var(--radius);padding:44px;box-shadow:var(--shadow);}
+  /* about (full-bleed band) */
+  .about{background:var(--oxblood);color:var(--cream);}
   .about-grid{display:grid;grid-template-columns:300px 1fr;gap:38px;align-items:start;}
   .about-img img{width:100%;height:auto;display:block;border-radius:var(--radius-sm);box-shadow:0 16px 36px -20px rgba(0,0,0,.55);}
   .about h2{color:var(--cream);}
   .about p{color:rgba(250,246,238,.88);font-size:15.5px;}
   .about strong{color:var(--gold-soft);}
+  .about .pullquote{font-size:19px;font-weight:700;color:var(--cream);line-height:1.4;margin:8px 0 18px;}
+  .about-card{background:rgba(255,255,255,.09);border:1px solid rgba(177,150,92,.32);border-radius:var(--radius-sm);padding:20px 22px;margin-top:10px;}
+  .about-card p{margin:0;color:var(--cream);font-size:15.5px;}
 
   /* accordions */
   .acc-list,.pillar-grid{display:flex;flex-direction:column;gap:14px;margin-top:26px;}
@@ -131,6 +112,10 @@
   .wmhq-box{margin-top:22px;background:#f8e4e9;border-radius:var(--radius-sm);padding:18px 20px;font-size:14.5px;font-weight:500;}
   .wmhq-box .wlabel{font-weight:700;color:var(--oxblood);display:block;margin-bottom:5px;}
   .pillar .wmhq-box{background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.7);}
+
+  /* dotted free-community CTA */
+  .free-cta{display:inline-block;margin-top:6px;border:2px dashed var(--oxblood);background:transparent;color:var(--oxblood);font-weight:700;font-size:15px;text-decoration:none;padding:16px 30px;border-radius:14px;transition:.2s;line-height:1.4;}
+  .free-cta:hover{background:var(--oxblood);color:var(--cream);}
 
   /* tabs */
   .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 24px;}
@@ -184,7 +169,6 @@
   .tip .tip-ico{flex-shrink:0;font-size:18px;line-height:1.5;}
   .tip strong{color:var(--oxblood);}
 
-  /* method timeline */
   .steps{position:relative;margin:10px 0 0;padding-left:6px;}
   .step{display:flex;gap:18px;padding:0 0 20px;position:relative;}
   .step:not(:last-child)::before{content:"";position:absolute;left:23px;top:40px;bottom:-2px;width:1px;background:var(--line);}
@@ -197,7 +181,6 @@
   .pi b{display:block;color:var(--oxblood);margin-bottom:5px;font-size:14.5px;}
   .pi span{font-weight:500;font-size:14px;}
 
-  /* calendar */
   .opt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px;}
   .opt{position:relative;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);cursor:pointer;transition:transform .2s,box-shadow .2s;}
   .opt:hover{transform:translateY(-4px);box-shadow:0 22px 44px -20px rgba(40,21,21,.42);}
@@ -221,23 +204,10 @@
   .count-total{font-weight:600;color:var(--oxblood);font-size:14px;margin:0 0 16px;min-height:18px;}
   .action-card{background:rgba(61,12,12,.06);border:1px solid rgba(61,12,12,.10);border-radius:var(--radius-sm);padding:16px 18px;margin-top:18px;font-weight:500;line-height:1.6;}
   .action-card strong{color:var(--oxblood);}
-
   .action{background:none;border:none;padding:0;margin:30px 0 0;font-weight:500;color:var(--ink);line-height:1.6;}
   .action strong{color:var(--oxblood);}
-  .about-card{background:rgba(255,255,255,.09);border:1px solid rgba(177,150,92,.32);border-radius:var(--radius-sm);padding:20px 22px;margin-top:10px;}
-  .about-card p{margin:0;color:var(--cream);font-size:15.5px;}
-  .about .pullquote{font-size:19px;font-weight:700;color:var(--cream);line-height:1.4;margin:8px 0 18px;}
-  .pill-list{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:10px 0 0;padding:0;}
-  .pill-list li{padding:9px 16px;border-radius:999px;font-weight:600;font-size:14px;color:var(--maroon);line-height:1.35;}
-  .pill-list li::before{display:none;}
-  .pill-list li:nth-child(1){background:#fbe3e7;}
-  .pill-list li:nth-child(2){background:#e79aa6;}
-  .pill-list li:nth-child(3){background:#f7ccd2;}
-  .pill-list li:nth-child(4){background:#d98b95;}
-  .pill-list li:nth-child(5){background:#fad6da;}
-  .pill-list li:nth-child(6){background:#e3a2ab;}
 
-  /* to-do list */
+  /* to-do */
   .todo-grid{display:flex;flex-direction:column;gap:12px;margin:6px 0 0;}
   .todo{display:flex;align-items:flex-start;gap:14px;background:var(--cream);border:1px solid var(--line-soft);border-radius:var(--radius-sm);padding:16px 18px;box-shadow:var(--shadow-sm);cursor:pointer;transition:.2s;}
   .todo:hover{border-color:var(--line);}
@@ -250,13 +220,18 @@
 
   /* deeper */
   .deeper{background:var(--pink);color:var(--maroon);border-radius:var(--radius);padding:40px;box-shadow:var(--shadow);}
-  .deeper .eyebrow{background:var(--maroon);color:var(--pink);}
   .deeper h2{color:var(--maroon);}
   .deeper p{color:var(--maroon);}
   .deeper a.link{color:var(--maroon);border-color:rgba(61,10,16,.5);}
   .deeper a.link:hover{color:#7a1f28;border-color:var(--maroon);}
-  .deeper ul.clean li{color:var(--maroon);}
-  .deeper ul.clean li::before{background:var(--maroon);}
+  .pill-list{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:10px 0 0;padding:0;}
+  .pill-list li{padding:9px 16px;border-radius:999px;font-weight:600;font-size:14px;color:var(--maroon);line-height:1.35;}
+  .pill-list li:nth-child(1){background:#fbe3e7;}
+  .pill-list li:nth-child(2){background:#e79aa6;}
+  .pill-list li:nth-child(3){background:#f7ccd2;}
+  .pill-list li:nth-child(4){background:#d98b95;}
+  .pill-list li:nth-child(5){background:#fad6da;}
+  .pill-list li:nth-child(6){background:#e3a2ab;}
   .deeper .phase{background:rgba(255,255,255,.55);border:1px solid rgba(61,10,16,.14);border-radius:var(--radius-sm);padding:16px 20px;margin-bottom:11px;}
   .deeper .phase b{color:var(--maroon);font-size:16px;}
   .deeper .phase p{margin:6px 0 0;font-size:14.5px;color:var(--maroon);}
@@ -264,8 +239,21 @@
   .deeper .cta-btn:hover{background:#2a0709;color:var(--pink);}
   .cta-btn{display:inline-block;font-weight:700;text-decoration:none;padding:15px 32px;border-radius:999px;margin-top:16px;font-size:15px;letter-spacing:.01em;transition:background .2s;}
 
-  .foot{padding:48px 24px 60px;text-align:center;display:flex;justify-content:center;}
-  .foot p{max-width:700px;margin:0 auto;font-size:12.5px;color:var(--ink-soft);font-weight:400;line-height:1.7;text-align:center;}
+  /* shared socials */
+  .social{display:flex;gap:16px;align-items:center;justify-content:center;}
+  .social a{display:inline-flex;color:inherit;transition:.2s;}
+  .social a svg{width:20px;height:20px;display:block;}
+  .social a:hover{opacity:.6;}
+
+  /* dashboard footer */
+  .foot{padding:46px 24px 58px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;}
+  .foot .social{color:var(--oxblood);}
+  .foot-ip{max-width:700px;margin:0;font-size:12.5px;color:var(--ink-soft);font-weight:400;line-height:1.7;}
+  .foot-links{display:flex;gap:12px;align-items:center;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
+  .foot-links a{color:var(--oxblood);text-decoration:none;transition:.2s;}
+  .foot-links a:hover{color:var(--gold);}
+  .foot-links span{color:var(--ink-soft);opacity:.45;}
+  .foot-copy{margin:0;font-size:12px;color:var(--ink-soft);font-weight:500;}
 
   .reveal{opacity:0;transform:translateY(16px);transition:.6s ease;}
   .reveal.in{opacity:1;transform:none;}
@@ -285,11 +273,14 @@
   .gate-err{color:#f1a89f;font-size:13.5px;font-weight:600;margin-top:14px;min-height:18px;opacity:0;transition:.2s;}
   .gate-err.show{opacity:1;}
   .gate.shake .gate-inner{animation:shake .4s;}
-  .gate-foot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 26px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-top:1px solid rgba(177,150,92,.22);background:rgba(0,0,0,.18);}
-  .gate-foot-left{color:rgba(250,246,238,.65);white-space:nowrap;}
-  .gate-foot-right{color:var(--gold-soft);text-decoration:none;transition:.2s;white-space:nowrap;}
-  .gate-foot-right:hover{color:var(--cream);}
   @keyframes shake{10%,90%{transform:translateX(-2px);}20%,80%{transform:translateX(4px);}30%,50%,70%{transform:translateX(-8px);}40%,60%{transform:translateX(8px);}}
+  .gate-foot{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;gap:11px;padding:20px 24px;border-top:1px solid rgba(177,150,92,.22);background:rgba(0,0,0,.18);text-align:center;}
+  .gate-foot .social{color:rgba(250,246,238,.75);}
+  .gate-foot-links{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+  .gate-foot-links a{color:var(--gold-soft);text-decoration:none;transition:.2s;white-space:nowrap;}
+  .gate-foot-links a:hover{color:var(--cream);}
+  .gate-foot-links span{color:rgba(250,246,238,.3);}
+  .gate-foot-copy{font-size:10.5px;color:rgba(250,246,238,.55);font-weight:500;letter-spacing:.03em;}
 
   @media(max-width:760px){
     .grid-2{grid-template-columns:1fr;}
@@ -298,7 +289,7 @@
     .pi-grid{grid-template-columns:1fr;}
     .hook-inner{padding-left:20px;}
     .section{padding:52px 0;}
-    .card,.announce,.about,.deeper,.turn{padding:28px;}
+    .card,.deeper,.turn{padding:28px;}
     .acc-inner,.acc-head{padding-left:24px;padding-right:24px;}
     .about-grid{grid-template-columns:1fr;gap:24px;}
     .about-img img{max-width:300px;margin:0 auto;}
@@ -319,8 +310,19 @@
       <div class="gate-err" id="gateErr">That code isn't right. Try again.</div>
     </div>
     <div class="gate-foot">
-      <span class="gate-foot-left">JESSICA PINILI ©</span>
-      <a class="gate-foot-right" href="https://www.jessicapinili.com/login" target="_blank" rel="noopener">LOGIN TO KAJABI</a>
+      <div class="social">
+        <a href="https://www.instagram.com/jesspinili/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.tiktok.com/@jesspinili" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.35 2.02 1.55 3.4 3.4 3.66v2.3c-1.28 0-2.5-.42-3.5-1.14v6.03a5.45 5.45 0 1 1-5.45-5.45c.28 0 .56.02.83.07v2.4a3.06 3.06 0 1 0 2.15 2.93V3h2.57z"/></svg></a>
+        <a href="https://www.youtube.com/@jesspinili" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.72a2.51 2.51 0 0 0-1.77-1.78C19.26 5 12 5 12 5s-7.26 0-8.83.5A2.51 2.51 0 0 0 1.4 7.28C1 8.8 1 12 1 12s0 3.2.4 4.72a2.51 2.51 0 0 0 1.77 1.78C4.74 19 12 19 12 19s7.26 0 8.83-.5a2.51 2.51 0 0 0 1.77-1.78C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg></a>
+        <a href="https://open.spotify.com/show/0dVGnR2Yoh3BhNO1CE7umD?si=a6a687b3bacf4e69" target="_blank" rel="noopener" aria-label="Podcast on Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.56 14.42a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.82-.87 7.09-.5 9.72 1.11.3.18.39.57.21.85zm1.22-2.72a.78.78 0 0 1-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.56 11.24 1.34.36.22.48.7.25 1.06zm.1-2.84C14.78 8.9 9.35 8.72 6.25 9.66a.94.94 0 1 1-.54-1.8c3.56-1.08 9.56-.87 13.33 1.38a.94.94 0 0 1-.96 1.62z"/></svg></a>
+        <a href="https://substack.com/@jessicapinili" target="_blank" rel="noopener" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 3.5h17v2.6h-17zM3.5 8.2h17v2.6h-17zM3.5 12.9l8.5 4.77 8.5-4.77V21l-8.5-4.77L3.5 21z"/></svg></a>
+      </div>
+      <div class="gate-foot-links">
+        <a href="https://www.jessicapinili.com/jpinili-terms-conditions" target="_blank" rel="noopener">Terms</a><span>·</span>
+        <a href="https://www.jessicapinili.com/jpinili-privacy-statement" target="_blank" rel="noopener">Privacy</a><span>·</span>
+        <a href="https://www.jessicapinili.com/login" target="_blank" rel="noopener">Login to Kajabi</a>
+      </div>
+      <div class="gate-foot-copy">© 2026 Jessica Marie Holdings Pty Ltd. All rights reserved.</div>
     </div>
   </div>
 
@@ -375,29 +377,6 @@
             <li>A system to batch content in under 4 hours</li>
             <li>Confidence in your own abilities to create quality content.</li>
           </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section" style="padding-top:0;" id="about">
-    <div class="wrap">
-      <div class="about reveal">
-        <div class="about-grid">
-          <div class="about-img">
-            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2162592122/settings_images/5b1abd-4cf-cfd7-fe14-112df25a3f_WMHQ_Mockups_11_.png" alt="Jess Pinili">
-          </div>
-          <div class="about-text">
-            <div class="eyebrow">A lil about me</div>
-            <h2 class="title">I'm Jess Pinili 👋🏾</h2>
-            <p>I'm a Business Strategist + Mindset Coach who helps brand founders and creators build a buyer-ready audience while dissolving the fear of visibility.</p>
-            <p>You know the drill: Post daily. Share tips. Dance for the algorithm. Check all the boxes. I did that too. And I was miserable. Not because I was doing it wrong or there was a "trick..." But because I was doing it scared!!!</p>
-            <p>Constantly editing myself, diluting my message, and creating content that looked good on paper but did exactly nothing for my business 😬</p>
-            <p class="pullquote">Turns out, I didn't need more content or a trend. I needed to stop muting myself.</p>
-            <p>Unmuted is what I built for the version of me who was tired of performing and ready to actually be heard. It's the framework that teaches you how to say what you mean, own your damn presence, and create content that doesn't just exist, it converts 😉</p>
-            <div class="about-card"><p style="margin-bottom:0;">So. Your Unmuted Dashboard is ready. Your voice? Also ready. Let's make your next chapter the one where people don't just scroll past you, they stop, listen, and buy. Everything I shows the magic inside <a href="https://www.womanmasteryhq.com" class="link" target="_blank" rel="noopener" style="color:var(--gold-soft);border-color:var(--gold-soft);">Woman Mastery HQ Membership.</a></p></div>
-          </div>
         </div>
       </div>
     </div>
@@ -469,6 +448,10 @@
             <div class="wmhq-box"><span class="wlabel">Where WMHQ comes in:</span>Inside WMHQ, you'll also learn how to show up authentically without oversharing, using personal stories and vulnerability strategically while balancing relatability with aspiration.</div>
           </div></div>
         </div>
+      </div>
+
+      <div style="text-align:center;margin-top:32px;">
+        <a href="https://www.jessicapinili.com/theroom-free-communitysignup" class="free-cta reveal" target="_blank" rel="noopener">Want more trainings? Join my FREE community.</a>
       </div>
     </div>
   </section>
@@ -786,7 +769,7 @@
       <div class="deeper reveal">
         <div class="eyebrow">Ready to go deeper?</div>
         <h2 class="title">UNMUTED is the foundation. WMHQ is the next level.</h2>
-        <p>UNMUTED gives you the foundation for creating content that converts. But inside <a href="https://www.womanmasteryhq.com" class="link" target="_blank" rel="noopener">Woman Mastery HQ Membership</a>, we take this to the next level:</p>
+        <p>UNMUTED gives you the foundation for creating content that converts. But inside <a href="https://www.womanmasteryhq.com/joinmembership" class="link" target="_blank" rel="noopener">Woman Mastery HQ Membership</a>, we take this to the next level:</p>
         <p style="font-weight:700;color:var(--maroon);margin:18px 0 6px;">What you get inside WMHQ:</p>
         <p>The system, the support, and the strategy to create content that consistently attracts dream clients and makes sales.</p>
         <ul class="pill-list">
@@ -802,15 +785,47 @@
         <div class="phase"><b>Phase 3: Cash (Sales &amp; Monetisation)</b><p>We turn attention into revenue. You learn how to sell without being salesy, price confidently, structure offers that convert, and build a simple sales system that brings in consistent income.</p></div>
         <div class="phase"><b>Phase 4: Subconscious Mastery (Beliefs, Identity &amp; Nervous System)</b><p>This is the layer most people skip and why they keep hitting income ceilings. We rewire the beliefs, identity, and nervous system patterns that cap your growth, so your next level actually feels safe, sustainable, and embodied.</p></div>
         <p style="margin-top:18px;">🪄 Together, WMHQ isn't just teaching you how to do business, it's teaching you how to become the person who can hold the level of success you want.</p>
-        <p style="margin-bottom:6px;">💻 <a href="https://www.womanmasteryhq.com" class="link" target="_blank" rel="noopener">Click HERE</a> to join or slide into my DM's <a href="https://www.instagram.com/jesspinili/" class="link" target="_blank" rel="noopener">HERE</a> if you have a question</p>
-        <a href="https://www.womanmasteryhq.com" class="cta-btn" target="_blank" rel="noopener">Join Woman Mastery HQ</a>
+        <p style="margin-bottom:6px;">💻 <a href="https://www.womanmasteryhq.com/joinmembership" class="link" target="_blank" rel="noopener">Click HERE</a> to join or slide into my DM's <a href="https://www.instagram.com/jesspinili/" class="link" target="_blank" rel="noopener">HERE</a> if you have a question</p>
+        <a href="https://www.womanmasteryhq.com/joinmembership" class="cta-btn" target="_blank" rel="noopener">Join Woman Mastery HQ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT (full-bleed) -->
+  <section class="section about" id="about">
+    <div class="wrap">
+      <div class="about-grid reveal">
+        <div class="about-img">
+          <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2162592122/settings_images/5b1abd-4cf-cfd7-fe14-112df25a3f_WMHQ_Mockups_11_.png" alt="Jess Pinili">
+        </div>
+        <div class="about-text">
+          <div class="eyebrow">A lil about me</div>
+          <h2 class="title">I'm Jess Pinili 👋🏾</h2>
+          <p>I'm a Business Strategist + Mindset Coach who helps brand founders and creators build a buyer-ready audience while dissolving the fear of visibility.</p>
+          <p>You know the drill: Post daily. Share tips. Dance for the algorithm. Check all the boxes. I did that too. And I was miserable. Not because I was doing it wrong or there was a "trick..." But because I was doing it scared!!!</p>
+          <p>Constantly editing myself, diluting my message, and creating content that looked good on paper but did exactly nothing for my business 😬</p>
+          <p class="pullquote">Turns out, I didn't need more content or a trend. I needed to stop muting myself.</p>
+          <p>Unmuted is what I built for the version of me who was tired of performing and ready to actually be heard. It's the framework that teaches you how to say what you mean, own your damn presence, and create content that doesn't just exist, it converts 😉</p>
+          <div class="about-card"><p style="margin-bottom:0;">So. Your Unmuted Dashboard is ready. Your voice? Also ready. Let's make your next chapter the one where people don't just scroll past you, they stop, listen, and buy. Everything I shows the magic inside <a href="https://www.womanmasteryhq.com/joinmembership" class="link" target="_blank" rel="noopener" style="color:var(--gold-soft);border-color:var(--gold-soft);">Woman Mastery HQ Membership.</a></p></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="foot">
-    <p>This work is the sole property of Jessica Pinili. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, or create derivative works in any capacity. All rights on intellectual property of this digital product are proprietary and reserved for exclusive use by Jessica Pinili alone.</p>
+    <div class="social">
+      <a href="https://www.instagram.com/jesspinili/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://www.tiktok.com/@jesspinili" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.35 2.02 1.55 3.4 3.4 3.66v2.3c-1.28 0-2.5-.42-3.5-1.14v6.03a5.45 5.45 0 1 1-5.45-5.45c.28 0 .56.02.83.07v2.4a3.06 3.06 0 1 0 2.15 2.93V3h2.57z"/></svg></a>
+      <a href="https://www.youtube.com/@jesspinili" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.72a2.51 2.51 0 0 0-1.77-1.78C19.26 5 12 5 12 5s-7.26 0-8.83.5A2.51 2.51 0 0 0 1.4 7.28C1 8.8 1 12 1 12s0 3.2.4 4.72a2.51 2.51 0 0 0 1.77 1.78C4.74 19 12 19 12 19s7.26 0 8.83-.5a2.51 2.51 0 0 0 1.77-1.78C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg></a>
+      <a href="https://open.spotify.com/show/0dVGnR2Yoh3BhNO1CE7umD?si=a6a687b3bacf4e69" target="_blank" rel="noopener" aria-label="Podcast on Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.56 14.42a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.82-.87 7.09-.5 9.72 1.11.3.18.39.57.21.85zm1.22-2.72a.78.78 0 0 1-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.56 11.24 1.34.36.22.48.7.25 1.06zm.1-2.84C14.78 8.9 9.35 8.72 6.25 9.66a.94.94 0 1 1-.54-1.8c3.56-1.08 9.56-.87 13.33 1.38a.94.94 0 0 1-.96 1.62z"/></svg></a>
+      <a href="https://substack.com/@jessicapinili" target="_blank" rel="noopener" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 3.5h17v2.6h-17zM3.5 8.2h17v2.6h-17zM3.5 12.9l8.5 4.77 8.5-4.77V21l-8.5-4.77L3.5 21z"/></svg></a>
+    </div>
+    <p class="foot-ip">This work is the sole property of Jessica Marie Group Pty Ltd. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, reproduce, or create derivative works from this material in any capacity.<br>All intellectual property rights relating to this digital product are proprietary and reserved exclusively by Jessica Marie Group Pty Ltd.</p>
+    <div class="foot-links">
+      <a href="https://www.jessicapinili.com/jpinili-terms-conditions" target="_blank" rel="noopener">Terms</a><span>·</span><a href="https://www.jessicapinili.com/jpinili-privacy-statement" target="_blank" rel="noopener">Privacy</a>
+    </div>
+    <p class="foot-copy">© 2026 Jessica Marie Holdings Pty Ltd. All rights reserved.</p>
   </footer>
 
 </div>
@@ -819,7 +834,6 @@
   (function(){
     var root = document.getElementById('unmuted');
 
-    // login gate
     var gate = root.querySelector('#gate');
     if(gate){
       var gInput = root.querySelector('#gateInput');
@@ -877,7 +891,6 @@
       h.addEventListener('click', function(){ h.parentElement.classList.toggle('open'); });
     });
 
-    // accordions
     root.querySelectorAll('.acc-head').forEach(function(h){
       h.addEventListener('click', function(){
         var acc = h.parentElement, body = acc.querySelector('.acc-body');
@@ -888,7 +901,6 @@
     function initAcc(){ root.querySelectorAll('.acc.open .acc-body').forEach(function(b){ b.style.maxHeight = b.scrollHeight + 'px'; }); }
     initAcc(); window.addEventListener('load', initAcc);
 
-    // copy buttons
     function fallbackCopy(text, cb){
       var ta = document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.top='-9999px';
       document.body.appendChild(ta); ta.focus(); ta.select();
@@ -921,14 +933,11 @@
       });
     }
 
-    // calendar select
     var opts = root.querySelectorAll('.opt');
     opts.forEach(function(o){ o.addEventListener('click', function(){ opts.forEach(function(x){ x.classList.remove('selected'); }); o.classList.add('selected'); }); });
 
-    // to-do toggle
     root.querySelectorAll('.todo').forEach(function(t){ t.addEventListener('click', function(){ t.classList.toggle('done'); }); });
 
-    // count total
     var inputs = root.querySelectorAll('.count input');
     var totalEl = root.querySelector('#countTotal');
     function updTotal(){
@@ -937,54 +946,39 @@
     }
     inputs.forEach(function(i){ i.addEventListener('input', updTotal); });
 
-    // typing animation on section titles
     function graphemes(str){
       try{ if(window.Intl && Intl.Segmenter){ var seg = new Intl.Segmenter(undefined,{granularity:'grapheme'}); return Array.from(seg.segment(str), function(s){ return s.segment; }); } }catch(e){}
       return Array.from(str);
     }
     var titles = root.querySelectorAll('h2.title');
     titles.forEach(function(el){
-      el.dataset.full = el.textContent;
-      el.textContent = '';
+      el.dataset.full = el.textContent; el.textContent = '';
       var cur = document.createElement('span'); cur.className = 'tcursor'; el.appendChild(cur);
     });
     function typeTitle(el){
       if(el.dataset.typed) return; el.dataset.typed = '1';
-      var chars = graphemes(el.dataset.full || '');
-      var cur = el.querySelector('.tcursor');
-      var i = 0;
-      (function step(){
-        if(i < chars.length){ cur.insertAdjacentText('beforebegin', chars[i]); i++; setTimeout(step, 30); }
-      })();
+      var chars = graphemes(el.dataset.full || ''); var cur = el.querySelector('.tcursor'); var i = 0;
+      (function step(){ if(i < chars.length){ cur.insertAdjacentText('beforebegin', chars[i]); i++; setTimeout(step, 30); } })();
     }
     if('IntersectionObserver' in window){
-      var tObs = new IntersectionObserver(function(entries){
-        entries.forEach(function(en){ if(en.isIntersecting){ typeTitle(en.target); tObs.unobserve(en.target); } });
-      }, {threshold:0.55});
+      var tObs = new IntersectionObserver(function(entries){ entries.forEach(function(en){ if(en.isIntersecting){ typeTitle(en.target); tObs.unobserve(en.target); } }); }, {threshold:0.55});
       titles.forEach(function(el){ tObs.observe(el); });
     } else { titles.forEach(function(el){ var c=el.querySelector('.tcursor'); if(c) c.remove(); el.textContent = el.dataset.full; }); }
 
-    // scrollspy
     var spyLinks = root.querySelectorAll('.nav-links a[data-spy]');
     var map = {}; spyLinks.forEach(function(a){ map[a.getAttribute('data-spy')] = a; });
     var spySections = []; spyLinks.forEach(function(a){ var s = root.querySelector('#'+a.getAttribute('data-spy')); if(s) spySections.push(s); });
     if('IntersectionObserver' in window){
       var spyObs = new IntersectionObserver(function(entries){
         entries.forEach(function(en){
-          if(en.isIntersecting){
-            spyLinks.forEach(function(x){ x.classList.remove('active'); });
-            var id = en.target.getAttribute('id'); if(map[id]) map[id].classList.add('active');
-          }
+          if(en.isIntersecting){ spyLinks.forEach(function(x){ x.classList.remove('active'); }); var id = en.target.getAttribute('id'); if(map[id]) map[id].classList.add('active'); }
         });
       }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
       spySections.forEach(function(s){ spyObs.observe(s); });
     }
 
-    // reveal
     if('IntersectionObserver' in window){
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-      }, {threshold:0.12});
+      var io = new IntersectionObserver(function(entries){ entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); }, {threshold:0.12});
       root.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
     } else { root.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); }); }
   })();
